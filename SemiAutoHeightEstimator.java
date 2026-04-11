@@ -195,6 +195,7 @@ public class SemiAutoHeightEstimator {
         for (int i = 1; i <= photoCount; i++) {
             System.out.println("\n--- 照片 " + i + " ---");
             String imagePath = readLine(scanner, "請輸入圖片檔案路徑: ");
+
             BufferedImage image = readImage(imagePath);
             if (image == null) {
                 System.out.println("  [錯誤] 無法讀取圖片: " + imagePath);
@@ -203,6 +204,7 @@ public class SemiAutoHeightEstimator {
             }
 
             int targetCount = readInt(scanner, "此照片要測量幾位目標同學: ");
+
             List<String> targetNames = new ArrayList<>();
             for (int t = 1; t <= targetCount; t++) {
                 targetNames.add(readLine(scanner, "目標同學 " + t + " 名稱: "));
@@ -219,7 +221,6 @@ public class SemiAutoHeightEstimator {
             }
 
             printGuideMessage(targetNames);
-            System.out.println("正在開啟圖片視窗，請在圖片上依序點選...");
             List<PixelPoint> points = collectPointsOnEdt(image, "點選: " + new File(imagePath).getName(), purposes);
             if (points.size() != purposes.size()) {
                 System.out.println("  [錯誤] 點選未完成，略過此張。");
@@ -303,6 +304,7 @@ public class SemiAutoHeightEstimator {
     private static int readInt(Scanner scanner, String prompt) {
         while (true) {
             String line = readLine(scanner, prompt);
+
             try {
                 return Integer.parseInt(line);
             } catch (NumberFormatException ex) {

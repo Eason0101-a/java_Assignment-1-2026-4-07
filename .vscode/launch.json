@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SemiAutoHeightEstimator",
+            "request": "launch",
+            "mainClass": "SemiAutoHeightEstimator",
+            "projectName": "java_Assiginment 1 0407_25c5f0b7"
+        }
+    ]
+}
